@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{AA3CDD0F-00D0-44E6-8C1D-4DCED73C4856}" SchemaVersion="94">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{AA3CDD0F-00D0-44E6-8C1D-4DCED73C4856}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="DefaultBank" ID="{AD9C9BD6-8168-4C9A-94EC-EBC74E0C820C}">
+					<ObjectInclusionList>
+						<ObjectRef Name="SnareHit" ID="{3627F4EC-E0A4-40E5-B9A7-ED42420094EF}" WorkUnitID="{B6EA72C2-557B-4FD7-8DEA-6F0C15CE93C6}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="KickHit" ID="{A6870005-C8DD-4584-B6DB-49DE31397C15}" WorkUnitID="{B6EA72C2-557B-4FD7-8DEA-6F0C15CE93C6}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="Beat" ID="{720C2F7E-C32B-471A-AC4B-819E690EEB93}" WorkUnitID="{B6EA72C2-557B-4FD7-8DEA-6F0C15CE93C6}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="DownBeat" ID="{6DC8CD02-744E-4B38-8DFB-A54F0E3B4429}" WorkUnitID="{B6EA72C2-557B-4FD7-8DEA-6F0C15CE93C6}" Filter="7" Origin="Manual"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

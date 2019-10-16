@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{B6EA72C2-557B-4FD7-8DEA-6F0C15CE93C6}" SchemaVersion="94">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{B6EA72C2-557B-4FD7-8DEA-6F0C15CE93C6}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="KickHit" ID="{A6870005-C8DD-4584-B6DB-49DE31397C15}">
+					<ChildrenList>
+						<Action Name="" ID="{9CF580F0-6703-4AA9-8DB7-5A5DA8670CA5}" ShortID="514962445">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="kickdrum" ID="{762F43BC-14A6-45AB-A55F-0FBC8EBBD9EA}" WorkUnitID="{49EECBCD-1A58-4355-B947-3FED0A3A9915}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="DownBeat" ID="{6DC8CD02-744E-4B38-8DFB-A54F0E3B4429}">
+					<ChildrenList>
+						<Action Name="" ID="{8CE5E3F6-A827-4A5F-8B5A-1F81A6C918DF}" ShortID="521994055">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="metronomeup" ID="{35E24868-5456-4B94-9035-24FD76D947C0}" WorkUnitID="{49EECBCD-1A58-4355-B947-3FED0A3A9915}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Beat" ID="{720C2F7E-C32B-471A-AC4B-819E690EEB93}">
+					<ChildrenList>
+						<Action Name="" ID="{86769650-CAE3-4961-87B5-9085F3219E61}" ShortID="252154548">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="metronome" ID="{222FBEA2-8CC8-43FB-B5FF-D7F34A2AE02F}" WorkUnitID="{49EECBCD-1A58-4355-B947-3FED0A3A9915}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="SnareHit" ID="{3627F4EC-E0A4-40E5-B9A7-ED42420094EF}">
+					<ChildrenList>
+						<Action Name="" ID="{9059520D-B9B4-49E3-9491-74F79EE9E7A6}" ShortID="374103324">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="snare-drum" ID="{0855F49A-622C-4DFB-8F7B-0DCC93F17CCE}" WorkUnitID="{49EECBCD-1A58-4355-B947-3FED0A3A9915}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

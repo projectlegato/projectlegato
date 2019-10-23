@@ -15,4 +15,9 @@ public class SnareDrumController : MonoBehaviour, InstrumentController
         AkSoundEngine.PostEvent("SnareHit", this.gameObject);
         CharacterAction();
     }
+
+    public string GetName()
+    {
+        return "snare";
+    }
 }

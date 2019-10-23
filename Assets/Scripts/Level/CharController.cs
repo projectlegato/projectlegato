@@ -20,14 +20,14 @@ public class CharController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MetronomeController.instance.AddInstrumentToBeat(ResetLemmingLoc, 0);
         rb = this.GetComponent<Rigidbody2D>();
+        BeatManager.i.SubToResetEvent(ResetLemmingLoc);
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeForMeasure = 240f/(float)MetronomeController.instance.bpm;
+        timeForMeasure = ((float)BeatManager.i.beats.Count / (float)BeatManager.i.bpm) * 60f;
         Vector2 newVelocity = rb.velocity;
         newVelocity.x = (Vector3.Distance(startLocation, endLocation)/timeForMeasure);
         

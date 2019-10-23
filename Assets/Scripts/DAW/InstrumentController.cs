@@ -2,4 +2,5 @@
 {
     void MakeSound();
     void CharacterAction();
+    string GetName();
 }

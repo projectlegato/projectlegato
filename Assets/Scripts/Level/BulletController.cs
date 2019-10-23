@@ -11,7 +11,7 @@ public class BulletController : MonoBehaviour
     void Start()
     {
         this.GetComponent<Rigidbody2D>().velocity = speed * Vector2.right;
-        duration = 60f / MetronomeController.instance.bpm;
+        duration = 60f / BeatManager.i.bpm;
         Invoke("Die", .5f * duration);
     }
 

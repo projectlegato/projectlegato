@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     {
         sr = this.GetComponent<SpriteRenderer>();
         col = this.GetComponent<BoxCollider2D>();
-        MetronomeController.instance.AddInstrumentToBeat(Reset, 0);
+        BeatManager.i.SubToResetEvent(Reset);
     }
 
     void OnTriggerEnter2D(Collider2D other)

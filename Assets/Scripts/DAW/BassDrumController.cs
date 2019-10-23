@@ -13,4 +13,9 @@ public class BassDrumController : MonoBehaviour, InstrumentController
         AkSoundEngine.PostEvent("KickHit", this.gameObject);
         CharacterAction();
     }
+
+    public string GetName()
+    {
+        return "bass";
+    }
 }

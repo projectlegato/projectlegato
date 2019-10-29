@@ -9,6 +9,8 @@ public class CharController : MonoBehaviour
 
     public float jumpSpeed;
 
+    public float vel;
+
     public GameObject bulletPrefab;
 
     float timeForMeasure;
@@ -22,18 +24,19 @@ public class CharController : MonoBehaviour
     {
         rb = this.GetComponent<Rigidbody2D>();
         BeatManager.i.SubToResetEvent(ResetLemmingLoc);
+        timeForMeasure = ((float)BeatManager.i.beats.Count / (float)BeatManager.i.bpm) * 60f;
+        vel = Vector3.Distance(startLocation, endLocation)/timeForMeasure;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeForMeasure = ((float)BeatManager.i.beats.Count / (float)BeatManager.i.bpm) * 60f;
         Vector2 newVelocity = rb.velocity;
-        newVelocity.x = (Vector3.Distance(startLocation, endLocation)/timeForMeasure);
+        newVelocity.x = vel;
         
         if (jumpQueued)
         {
-            newVelocity.y = jumpSpeed;
+            newVelocity.y = jumpSpeed * (1f - .5f*(1f - 120f/(float)BeatManager.i.bpm));
             jumpQueued = false;
         }
         rb.velocity = newVelocity;
@@ -48,7 +51,8 @@ public class CharController : MonoBehaviour
     {
         GameObject newBullet;
         newBullet = GameObject.Instantiate(bulletPrefab);
-        newBullet.transform.position = this.transform.position + (Vector3.right * .1f);
+        newBullet.transform.parent = this.transform;
+        newBullet.transform.position = this.transform.position + (Vector3.right * .4f);
     }
 
     public void ResetLemmingLoc()

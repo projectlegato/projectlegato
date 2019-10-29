@@ -46,3 +46,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Indicator
+    uniqueID: 3123540247
+    locked: 0
+  - name: Beat
+    uniqueID: 3107936229
+    locked: 0
+  - name: EnabledBeat
+    uniqueID: 2949537215
+    locked: 0

@@ -20,11 +20,13 @@ public class BeatManager : MonoBehaviour
 
     public List<BeatType> beats;
 
+    public bool subDiv;
+
     GameObject[] beatObjects;
 
     public GameObject beatPrefab;
 
-    int mult = 1;
+    float mult = 1f;
 
     int currIndex = 0;
 
@@ -53,10 +55,26 @@ public class BeatManager : MonoBehaviour
 
         for (int i = 0; i < beats.Count; i++)
         {
-            var newBeat = GameObject.Instantiate(beatPrefab, this.transform.position + (mult * Vector3.right), this.transform.rotation);
+            var newBeat = GameObject.Instantiate(beatPrefab, this.transform.position + (mult * Vector3.right) + (Vector3.left * (subDiv ? 2.5f : 0f)), this.transform.rotation);
             newBeat.GetComponent<Beat>().SetType(beats[i]);
+            newBeat.transform.parent = this.transform;
+            if (subDiv) 
+            {
+                var newScale = newBeat.transform.localScale;
+                newScale.x *= 0.5f;
+                newBeat.transform.localScale = newScale;
+            }
             beatObjects[i] = newBeat;
-            mult += 5;
+            mult += subDiv ? 2.5f: 5f;
+            if (i == beats.Count - 4) 
+            {
+                var bounds = newBeat.GetComponent<BoxCollider2D>().bounds;
+                GameObject.FindObjectOfType<CameraController>().rightBound = bounds.center.x + bounds.extents.x + .2f;
+            } else if (i == beats.Count - 1)
+            {
+                var bounds = newBeat.GetComponent<BoxCollider2D>().bounds;
+                GameObject.FindObjectOfType<CharController>().endLocation.x = bounds.center.x + bounds.extents.x;
+            }
         }
 
         InvokeRepeating("PlayOnBeat", 0f, 60f/bpm);

@@ -59,6 +59,32 @@
 										<ActiveSource Name="metronomeup" ID="{F62E57EF-EEE2-469A-B83A-1FCFEC16123C}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="metronomesub" ID="{B6E596EE-9206-43A1-98CC-E1F14BF74641}" ShortID="199503789">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-24</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{86C2022B-F22F-469E-89FD-60171A9331B2}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A485AC80-1A28-4653-B287-1754E84F8D3B}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="metronomesub" ID="{7FEF063A-EB6C-4A5B-8C38-6644BF880463}" ShortID="536147152">
+											<Language>SFX</Language>
+											<AudioFile>metronomesub.wav</AudioFile>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="metronomesub" ID="{7FEF063A-EB6C-4A5B-8C38-6644BF880463}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 						<Sound Name="kickdrum" ID="{762F43BC-14A6-45AB-A55F-0FBC8EBBD9EA}" ShortID="168258">
@@ -104,6 +130,44 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="snare-drum" ID="{5EE79CA1-B973-4F1A-8F42-44F1C86C0591}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="crash_fixed" ID="{AC72EF66-ADC2-484E-AB7C-04AEFD0C3492}" ShortID="69053292">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{86C2022B-F22F-469E-89FD-60171A9331B2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A485AC80-1A28-4653-B287-1754E84F8D3B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="crash_fixed" ID="{6C7A0F2A-A9D6-43FC-92DB-4D2E6E992626}" ShortID="567067025">
+									<Language>SFX</Language>
+									<AudioFile>crash_fixed.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="crash_fixed" ID="{6C7A0F2A-A9D6-43FC-92DB-4D2E6E992626}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="hihat" ID="{CE30DF40-D229-43BB-A63D-FF055CE886AA}" ShortID="610857762">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{86C2022B-F22F-469E-89FD-60171A9331B2}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{A485AC80-1A28-4653-B287-1754E84F8D3B}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="hihat" ID="{C7E413AB-EDC8-4DEC-BC54-FE17DAB7C1FE}" ShortID="700849095">
+									<Language>SFX</Language>
+									<AudioFile>hihat.wav</AudioFile>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="hihat" ID="{C7E413AB-EDC8-4DEC-BC54-FE17DAB7C1FE}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

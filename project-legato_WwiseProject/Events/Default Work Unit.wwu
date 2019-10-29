@@ -47,6 +47,39 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="UpBeat" ID="{8A22E569-1BC5-4852-890E-9B39E4BCACDB}">
+					<ChildrenList>
+						<Action Name="" ID="{B6C79494-2DCA-4F52-9263-D3BA79AE1A5B}" ShortID="738064663">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="metronomesub" ID="{B6E596EE-9206-43A1-98CC-E1F14BF74641}" WorkUnitID="{49EECBCD-1A58-4355-B947-3FED0A3A9915}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="CrashHit" ID="{4D8F6158-FFF1-46E5-88E3-8424A52232AC}">
+					<ChildrenList>
+						<Action Name="" ID="{5E6F825F-3E29-409A-89F2-349D3FB5C268}" ShortID="16310892">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="crash_fixed" ID="{AC72EF66-ADC2-484E-AB7C-04AEFD0C3492}" WorkUnitID="{49EECBCD-1A58-4355-B947-3FED0A3A9915}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="HiHatHit" ID="{6668F205-0AC2-4EA8-B6A7-C88EDED1FD53}">
+					<ChildrenList>
+						<Action Name="" ID="{3B4C5733-5D10-4633-8690-D94DBEE5DD97}" ShortID="794983576">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="hihat" ID="{CE30DF40-D229-43BB-A63D-FF055CE886AA}" WorkUnitID="{49EECBCD-1A58-4355-B947-3FED0A3A9915}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

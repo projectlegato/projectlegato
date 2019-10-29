@@ -4,8 +4,9 @@ public class BassDrumController : MonoBehaviour, InstrumentController
 {
     public void CharacterAction()
     {
-        var lemming = GameObject.FindGameObjectWithTag("Player").GetComponent<CharController>();
-        lemming.Jump();
+        GameObject.FindGameObjectWithTag("Player")
+                  .GetComponent<CharController>()
+                  .Jump();
     }
 
     public void MakeSound()

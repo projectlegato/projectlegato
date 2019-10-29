@@ -14,9 +14,12 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID BEAT = 1190179409U;
+        static const AkUniqueID CRASHHIT = 3220967729U;
         static const AkUniqueID DOWNBEAT = 1500425445U;
+        static const AkUniqueID HIHATHIT = 2726513330U;
         static const AkUniqueID KICKHIT = 3946660102U;
         static const AkUniqueID SNAREHIT = 2473493295U;
+        static const AkUniqueID UPBEAT = 4090965798U;
     } // namespace EVENTS
 
     namespace BANKS

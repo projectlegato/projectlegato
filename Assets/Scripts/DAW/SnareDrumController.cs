@@ -6,8 +6,9 @@ public class SnareDrumController : MonoBehaviour, InstrumentController
 {
     public void CharacterAction()
     {
-        var lemming = GameObject.FindGameObjectWithTag("Player").GetComponent<CharController>();
-        lemming.Shoot();
+        GameObject.FindGameObjectWithTag("Player")
+                  .GetComponent<CharController>()
+                  .Shoot();
     }
 
     public void MakeSound()

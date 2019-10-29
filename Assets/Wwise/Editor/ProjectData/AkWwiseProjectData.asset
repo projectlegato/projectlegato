@@ -31,7 +31,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: 0fdd3caad000e6448c1d4dced73c4856
     GuidInternal: 
-    m_lastTime: -8586309557304030002
+    m_lastTime: -8586292318925562979
     List:
     - name: DefaultBank
       guid: d69b9cad68819a4c94ecebc74e0c820c
@@ -47,7 +47,7 @@ MonoBehaviour:
     ParentPhysicalPath: 
     guid: c272eab67b55d74f8dea6f0c15ce93c6
     GuidInternal: 
-    m_lastTime: -8586309559814477342
+    m_lastTime: -8586292318925663037
     List:
     - name: Beat
       guid: 7e2f0c722bc31a47ac4b819e690eeb93
@@ -61,6 +61,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.757642
       minDuration: 0.757642
+    - name: CrashHit
+      guid: 58618f4df1ffe54688e38424a52232ac
+      id: 3220967729
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: CrashHit
+        ObjectType: 3
+      Path: Default Work Unit\CrashHit
+      maxAttenuation: 0
+      maxDuration: 1.624989
+      minDuration: 1.624989
     - name: DownBeat
       guid: 02cdc86d4e74384b8dfba54f0e3b4429
       id: 1500425445
@@ -73,6 +85,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.601338
       minDuration: 0.601338
+    - name: HiHatHit
+      guid: 05f26866c20aa84eb6a7c88eded1fd53
+      id: 2726513330
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: HiHatHit
+        ObjectType: 3
+      Path: Default Work Unit\HiHatHit
+      maxAttenuation: 0
+      maxDuration: 0.550476
+      minDuration: 0.550476
     - name: KickHit
       guid: 050087a6ddc88445b6db49de31397c15
       id: 3946660102
@@ -97,6 +121,18 @@ MonoBehaviour:
       maxAttenuation: 0
       maxDuration: 0.394127
       minDuration: 0.394127
+    - name: UpBeat
+      guid: 69e5228ac51b5248890e9b39e4bcacdb
+      id: 4090965798
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: UpBeat
+        ObjectType: 3
+      Path: Default Work Unit\UpBeat
+      maxAttenuation: 0
+      maxDuration: 1.757642
+      minDuration: 1.757642
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     ParentPhysicalPath: 

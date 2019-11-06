@@ -1,6 +1,6 @@
 ﻿public interface InstrumentController
 {
-    void MakeSound();
+    void MakeSound(int beatNum);
     void CharacterAction();
-    string GetName();
+    int GetRow();
 }

@@ -6,6 +6,7 @@
 				<Property Name="AudioFilesImporter\Path" Type="string" Value="C:\Unity\project-legato\Assets\Sounds\Rhythm"/>
 				<Property Name="Event Action List\{3627F4EC-E0A4-40E5-B9A7-ED42420094EF}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{4D8F6158-FFF1-46E5-88E3-8424A52232AC}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{6668F205-0AC2-4EA8-B6A7-C88EDED1FD53}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{6DC8CD02-744E-4B38-8DFB-A54F0E3B4429}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{720C2F7E-C32B-471A-AC4B-819E690EEB93}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{8A22E569-1BC5-4852-890E-9B39E4BCACDB}\x64_Expand States" Type="string" Value=""/>

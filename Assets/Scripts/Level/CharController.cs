@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharController : MonoBehaviour
 {
-    public Vector3 startLocation;
+    Vector3 startLocation;
     public Vector3 endLocation;
 
     public float jumpSpeed;
@@ -19,13 +19,16 @@ public class CharController : MonoBehaviour
 
     bool jumpQueued = false;
 
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        startLocation = this.transform.position;
         rb = this.GetComponent<Rigidbody2D>();
-        BeatManager.i.SubToResetEvent(ResetLemmingLoc);
+        BeatManager.i.SubToResetEvent(ResetPlayerLoc);
         timeForMeasure = ((float)BeatManager.i.beats.Count / (float)BeatManager.i.bpm) * 60f;
         vel = Vector3.Distance(startLocation, endLocation)/timeForMeasure;
+        animator = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,7 +39,7 @@ public class CharController : MonoBehaviour
         
         if (jumpQueued)
         {
-            newVelocity.y = jumpSpeed * (1f - .5f*(1f - 120f/(float)BeatManager.i.bpm));
+            newVelocity.y = jumpSpeed * (1f - .5f*(1f - 120f/(float)BeatManager.i.bpm)) * (BeatManager.i.subDiv ? 1f : .8f);
             jumpQueued = false;
         }
         rb.velocity = newVelocity;
@@ -55,7 +58,7 @@ public class CharController : MonoBehaviour
         newBullet.transform.position = this.transform.position + (Vector3.right * .4f);
     }
 
-    public void ResetLemmingLoc()
+    public void ResetPlayerLoc()
     {
         this.transform.position = startLocation;
         this.rb.velocity = Vector2.zero;

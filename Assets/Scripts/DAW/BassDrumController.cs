@@ -2,6 +2,7 @@
 
 public class BassDrumController : MonoBehaviour, InstrumentController
 {
+    int[][] values;
     public void CharacterAction()
     {
         GameObject.FindGameObjectWithTag("Player")
@@ -9,14 +10,14 @@ public class BassDrumController : MonoBehaviour, InstrumentController
                   .Jump();
     }
 
-    public void MakeSound()
+    public void MakeSound(int beatNum)
     {
         AkSoundEngine.PostEvent("KickHit", this.gameObject);
         CharacterAction();
     }
 
-    public string GetName()
+    public int GetRow()
     {
-        return "bass";
+        return 0;
     }
 }

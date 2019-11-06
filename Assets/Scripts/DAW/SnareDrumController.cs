@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SnareDrumController : MonoBehaviour, InstrumentController
 {
+    int[][] values;
     public void CharacterAction()
     {
         GameObject.FindGameObjectWithTag("Player")
@@ -11,14 +12,14 @@ public class SnareDrumController : MonoBehaviour, InstrumentController
                   .Shoot();
     }
 
-    public void MakeSound()
+    public void MakeSound(int beatNum)
     {
         AkSoundEngine.PostEvent("SnareHit", this.gameObject);
         CharacterAction();
     }
 
-    public string GetName()
+    public int GetRow()
     {
-        return "snare";
+        return 1;
     }
 }

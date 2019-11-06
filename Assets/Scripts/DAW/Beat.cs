@@ -18,9 +18,14 @@ public class Beat : MonoBehaviour
         indicator.color = c;
     }
 
+    int _beatNum;
+
+    public int GetBeatNum() { return _beatNum; }
+    public void SetBeatNum(int n) { _beatNum = n; }
+
     public GameObject enabledViewPrefab;
 
-    Dictionary<string, GameObject> enabledViews;
+    Dictionary<int, GameObject> enabledViews;
 
     SpriteRenderer sr;
 
@@ -32,17 +37,17 @@ public class Beat : MonoBehaviour
     {
         sr = this.GetComponent<SpriteRenderer>();
         instruments = new List<InstrumentController>();
-        enabledViews = new Dictionary<string, GameObject>();
+        enabledViews = new Dictionary<int, GameObject>();
     }
 
     public void ToggleInstrument(InstrumentController newInstrument, float viewY)
     {
-        int i = instruments.FindIndex(x => x.GetName() == newInstrument.GetName());
+        int i = instruments.FindIndex(x => x.GetRow() == newInstrument.GetRow());
 
         if ( i != -1 ) 
         {
-            Destroy(enabledViews[instruments[i].GetName()]);
-            enabledViews.Remove(instruments[i].GetName());
+            Destroy(enabledViews[instruments[i].GetRow()]);
+            enabledViews.Remove(instruments[i].GetRow());
             instruments.RemoveAt(i);
         } else 
         {
@@ -55,7 +60,7 @@ public class Beat : MonoBehaviour
                 newScale.x *= 0.5f;
                 newView.transform.localScale = newScale;
             }
-            enabledViews.Add(newInstrument.GetName(), newView);
+            enabledViews.Add(newInstrument.GetRow(), newView);
         }
     }
 
@@ -64,11 +69,12 @@ public class Beat : MonoBehaviour
         MetronomeHit();
         foreach (var instrument in instruments)
         {
-            instrument.MakeSound();
+            instrument.MakeSound(_beatNum);
         }
     }
 
     uint _b;
+
     void MetronomeHit()
     {
         Color newColor = hitColor;

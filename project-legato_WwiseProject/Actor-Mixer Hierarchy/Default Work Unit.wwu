@@ -133,6 +133,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="crash_fixed" ID="{AC72EF66-ADC2-484E-AB7C-04AEFD0C3492}" ShortID="69053292">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{86C2022B-F22F-469E-89FD-60171A9331B2}"/>

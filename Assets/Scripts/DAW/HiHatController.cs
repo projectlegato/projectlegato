@@ -2,6 +2,7 @@
 
 public class HiHatController : MonoBehaviour, InstrumentController
 {
+    int[][] values;
     public void CharacterAction()
     {
         // GameObject.FindGameObjectWithTag("Player")
@@ -9,12 +10,12 @@ public class HiHatController : MonoBehaviour, InstrumentController
         //           .Jump();
     }
 
-    public string GetName()
+    public int GetRow()
     {
-        return "hi-hat";
+        return 2;
     }
 
-    public void MakeSound()
+    public void MakeSound(int beatNum)
     {
         AkSoundEngine.PostEvent("HiHatHit", this.gameObject);
     }

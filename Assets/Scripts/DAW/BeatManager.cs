@@ -22,7 +22,7 @@ public class BeatManager : MonoBehaviour
 
     public bool subDiv;
 
-    GameObject[] beatObjects;
+    public GameObject[] beatObjects;
 
     public GameObject beatPrefab;
 
@@ -54,6 +54,8 @@ public class BeatManager : MonoBehaviour
             Destroy(gameObject);
         }
 
+        resets = () => {};
+
         beatObjects = new GameObject[beats.Count];
 
         for (int i = 0; i < beats.Count; i++)
@@ -77,7 +79,7 @@ public class BeatManager : MonoBehaviour
             } else if (i == beats.Count - 1)
             {
                 var bounds = newBeat.GetComponent<BoxCollider2D>().bounds;
-                GameObject.FindObjectOfType<CharController>().endLocation.x = bounds.center.x + bounds.extents.x;
+                // GameObject.FindObjectOfType<CharController>().endLocation.x = bounds.center.x + bounds.extents.x;
             }
         }
 

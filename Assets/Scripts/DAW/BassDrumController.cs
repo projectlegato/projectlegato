@@ -2,12 +2,14 @@
 
 public class BassDrumController : MonoBehaviour, InstrumentController
 {
-    int[][] values;
+    public int center;
+    public int edges;
+    public int corners;
     public void CharacterAction()
     {
-        GameObject.FindGameObjectWithTag("Player")
-                  .GetComponent<CharController>()
-                  .Jump();
+        // GameObject.FindGameObjectWithTag("Player")
+        //           .GetComponent<CharController>()
+        //           .Jump();
     }
 
     public void MakeSound(int beatNum)
@@ -19,5 +21,15 @@ public class BassDrumController : MonoBehaviour, InstrumentController
     public int GetRow()
     {
         return 0;
+    }
+
+    public void OnSet(int beatNum)
+    {
+        PuzzleManager.i.SetValues(GetRow(), beatNum, center, edges, corners);
+    }
+
+    public void OnUnSet(int beatNum)
+    {
+        PuzzleManager.i.UnSetValues(GetRow(), beatNum, center, edges, corners);
     }
 }

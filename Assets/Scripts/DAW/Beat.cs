@@ -48,10 +48,12 @@ public class Beat : MonoBehaviour
         {
             Destroy(enabledViews[instruments[i].GetRow()]);
             enabledViews.Remove(instruments[i].GetRow());
+            instruments[i].OnUnSet(_beatNum);
             instruments.RemoveAt(i);
         } else 
         {
             instruments.Add(newInstrument);
+            newInstrument.OnSet(_beatNum);
             var newView = GameObject.Instantiate(enabledViewPrefab, new Vector3(this.transform.position.x, viewY, 0f), this.transform.rotation);
             newView.transform.parent = this.transform;
             if (BeatManager.i.subDiv)

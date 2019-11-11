@@ -14,9 +14,14 @@ public class WinHandler : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            print("win!");
-            nextLevelButton.gameObject.SetActive(true);
+            EnableNext();
             this.GetComponent<SpriteRenderer>().enabled = false;
         }
+    }
+
+    public void EnableNext()
+    {
+        print("win!");
+        nextLevelButton.gameObject.SetActive(true);
     }
 }

@@ -53,6 +53,9 @@ TagManager:
   - name: Beat
     uniqueID: 3107936229
     locked: 0
+  - name: PuzzleSquare
+    uniqueID: 3717444269
+    locked: 0
   - name: EnabledBeat
     uniqueID: 2949537215
     locked: 0

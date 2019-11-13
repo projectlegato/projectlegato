@@ -1,26 +1,23 @@
 ﻿using UnityEngine;
 
-public class BassDrumController : MonoBehaviour, InstrumentController
+public class Instrument : MonoBehaviour
 {
     public int center;
     public int edges;
     public int corners;
-    public void CharacterAction()
-    {
-        // GameObject.FindGameObjectWithTag("Player")
-        //           .GetComponent<CharController>()
-        //           .Jump();
-    }
+
+    public string soundEvent;
+
+    public int row;
 
     public void MakeSound(int beatNum)
     {
-        AkSoundEngine.PostEvent("KickHit", this.gameObject);
-        CharacterAction();
+        AkSoundEngine.PostEvent(soundEvent, this.gameObject);
     }
 
     public int GetRow()
     {
-        return 0;
+        return row;
     }
 
     public void OnSet(int beatNum)

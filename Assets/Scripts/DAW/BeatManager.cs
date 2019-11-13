@@ -88,25 +88,29 @@ public class BeatManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray,Mathf.Infinity);
+
+        if (hit.collider == null) return;
+
+        for (int i = 0; i < beatObjects.Length; i++)
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.GetRayIntersection(ray,Mathf.Infinity);
-
-            if (hit.collider == null) return;
-
-            for (int i = 0; i < beatObjects.Length; i++)
+            if (hit.collider == beatObjects[i].GetComponent<BoxCollider2D>())
             {
-                if (hit.collider == beatObjects[i].GetComponent<BoxCollider2D>())
+                float loc;
+                Instrument newInstrument = GetInstrument(mousePos.y, out loc);
+                if (newInstrument == null) return;
+
+                if (Input.GetMouseButtonDown(0))
                 {
-                    float loc;
-                    InstrumentController newInstrument = GetInstrument(mousePos.y, out loc);
-                    if (newInstrument == null) return;
                     beatObjects[i].GetComponent<Beat>().ToggleInstrument(newInstrument, loc);
                 }
+                else 
+                {
+                    print($"hovering over {newInstrument.GetRow()}");
+                }
             }
-
         }
     }
     void PlayOnBeat()
@@ -118,7 +122,7 @@ public class BeatManager : MonoBehaviour
         currIndex = incrIndex(currIndex);
     }
 
-    public InstrumentController GetInstrument(float y, out float locY)
+    public Instrument GetInstrument(float y, out float locY)
     {
         foreach (var i in instruments)
         {
@@ -128,7 +132,7 @@ public class BeatManager : MonoBehaviour
                && (y <= _y + col.bounds.extents.y))
                {
                    locY = col.bounds.center.y;
-                   return i.GetComponent<InstrumentController>();
+                   return i.GetComponent<Instrument>();
                }
         }
         locY = float.NaN;

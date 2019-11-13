@@ -7,7 +7,7 @@ public class PuzzleSquare : MonoBehaviour
 
     int originalValue;
 
-    public TextMeshPro display;
+    public TextMeshProUGUI display;
 
 
     void Start()

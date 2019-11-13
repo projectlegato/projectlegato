@@ -4,5 +4,4 @@
 
 ## TODO
 
-* add Wwise event for upbeat
-* scrolling
+* refactor instrument to be single prefab that's configurable

@@ -31,16 +31,16 @@ public class Beat : MonoBehaviour
 
     public SpriteRenderer indicator;
 
-    List<InstrumentController> instruments;
+    List<Instrument> instruments;
 
     void Start()
     {
         sr = this.GetComponent<SpriteRenderer>();
-        instruments = new List<InstrumentController>();
+        instruments = new List<Instrument>();
         enabledViews = new Dictionary<int, GameObject>();
     }
 
-    public void ToggleInstrument(InstrumentController newInstrument, float viewY)
+    public void ToggleInstrument(Instrument newInstrument, float viewY)
     {
         int i = instruments.FindIndex(x => x.GetRow() == newInstrument.GetRow());
 

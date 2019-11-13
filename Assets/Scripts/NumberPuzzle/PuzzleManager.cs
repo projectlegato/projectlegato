@@ -7,6 +7,8 @@ public class PuzzleManager : MonoBehaviour
 
     public LevelGridObject gridValues;
 
+    public float rowHeight;
+
     int numRows;
 
     public List<PuzzleRow> rows;
@@ -30,7 +32,7 @@ public class PuzzleManager : MonoBehaviour
         if (gridValues.levelName == "NULL") return;
         for (int i = 0; i < numRows; i++)
         {
-            var newRowPos = new Vector3(this.transform.position.x, this.transform.position.y + (2f * i), this.transform.position.z);
+            var newRowPos = new Vector3(this.transform.position.x, this.transform.position.y + (rowHeight * i), this.transform.position.z);
             var newRow = GameObject.Instantiate(rowPrefab, newRowPos, this.transform.rotation);
             newRow.transform.parent = this.transform;
             newRow.GetComponent<PuzzleRow>().SetValues(GetValsForRow(i));

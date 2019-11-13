@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Beat : MonoBehaviour 
 {
-    Color hitColor = new Color(0x63/255f, 0xc3/255f, 0xa7/255f);
+    public Color hitColor;
     BeatManager.BeatType _type;
     public BeatManager.BeatType GetBeatType() { return _type; }
     public void SetType(BeatManager.BeatType t) 
@@ -33,11 +33,40 @@ public class Beat : MonoBehaviour
 
     List<Instrument> instruments;
 
+    Instrument hoverInst;
+
+    Instrument prevInst;
+
     void Start()
     {
         sr = this.GetComponent<SpriteRenderer>();
         instruments = new List<Instrument>();
         enabledViews = new Dictionary<int, GameObject>();
+    }
+
+    void OnMouseOver()
+    {
+        float y;
+        hoverInst = BeatManager.i.GetInstrument(Camera.main.ScreenToWorldPoint(Input.mousePosition).y, out y);
+        if (hoverInst != prevInst && prevInst != null)
+        {
+            prevInst.Hover(false, _beatNum);
+        }
+
+        if (hoverInst != null)
+        {
+            hoverInst.Hover(true, _beatNum);
+        }
+
+        prevInst = hoverInst;
+    }
+
+    void OnMouseExit()
+    {
+        if (prevInst != null)
+        {
+            prevInst.Hover(false, _beatNum);
+        }
     }
 
     public void ToggleInstrument(Instrument newInstrument, float viewY)
@@ -60,6 +89,11 @@ public class Beat : MonoBehaviour
             {
                 var newScale = newView.transform.localScale;
                 newScale.x *= 0.5f;
+                newView.transform.localScale = newScale;
+            } else 
+            {
+                var newScale = newView.transform.localScale;
+                newScale.y *= 2f;
                 newView.transform.localScale = newScale;
             }
             enabledViews.Add(newInstrument.GetRow(), newView);

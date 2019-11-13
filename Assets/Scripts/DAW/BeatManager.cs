@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -105,10 +106,6 @@ public class BeatManager : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     beatObjects[i].GetComponent<Beat>().ToggleInstrument(newInstrument, loc);
-                }
-                else 
-                {
-                    print($"hovering over {newInstrument.GetRow()}");
                 }
             }
         }

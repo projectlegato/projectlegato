@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77b9266d930e944f8843cb5607326db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitColor: {r: 0.6586515, g: 0.28773582, b: 1, a: 1}
   enabledViewPrefab: {fileID: 6153129636837139136, guid: 6aaaddc7fd1f27d4aadb830dffc7bd29,
     type: 3}
   indicator: {fileID: 8106669676425890354}

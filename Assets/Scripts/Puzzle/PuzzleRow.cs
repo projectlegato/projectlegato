@@ -23,6 +23,10 @@ public class PuzzleRow : MonoBehaviour
             var newSquarePos = new Vector3(BeatManager.i.beatObjects[j].transform.position.x, this.transform.position.y, this.transform.position.z);
             var newSquare = GameObject.Instantiate(squarePrefab, newSquarePos, this.transform.rotation);
             newSquare.transform.parent = this.transform;
+            if(!BeatManager.i.subDiv)
+            {
+                newSquare.transform.localScale *= 2f;
+            }
             squares.Add(newSquare.GetComponent<PuzzleSquare>());
         }
         startDone = true;

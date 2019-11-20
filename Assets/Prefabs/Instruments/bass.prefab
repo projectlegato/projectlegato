@@ -67,6 +67,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4459467856980746670, guid: 5acfbbb06b9647a4faed2d5ed7ad13e6,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4902a63e2d0bff44bb34648360791012,
+        type: 3}
+    - target: {fileID: 4459467856980746670, guid: 5acfbbb06b9647a4faed2d5ed7ad13e6,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 2.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459467856980746670, guid: 5acfbbb06b9647a4faed2d5ed7ad13e6,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459467856980746670, guid: 5acfbbb06b9647a4faed2d5ed7ad13e6,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1224383883640751197, guid: 5acfbbb06b9647a4faed2d5ed7ad13e6,
         type: 3}
       propertyPath: soundEvent
@@ -117,26 +138,15 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2.88
       objectReference: {fileID: 0}
-    - target: {fileID: 4459467856980746670, guid: 5acfbbb06b9647a4faed2d5ed7ad13e6,
+    - target: {fileID: 8309787111519916577, guid: 5acfbbb06b9647a4faed2d5ed7ad13e6,
         type: 3}
-      propertyPath: m_Sprite
+      propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 21300000, guid: 4902a63e2d0bff44bb34648360791012,
+      objectReference: {fileID: 8300000, guid: f7f7985951177d44cb5a574a8734e374, type: 3}
+    - target: {fileID: 8309787111519916577, guid: 5acfbbb06b9647a4faed2d5ed7ad13e6,
         type: 3}
-    - target: {fileID: 4459467856980746670, guid: 5acfbbb06b9647a4faed2d5ed7ad13e6,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 2.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459467856980746670, guid: 5acfbbb06b9647a4faed2d5ed7ad13e6,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.88
-      objectReference: {fileID: 0}
-    - target: {fileID: 4459467856980746670, guid: 5acfbbb06b9647a4faed2d5ed7ad13e6,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
+      propertyPath: Loop
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5acfbbb06b9647a4faed2d5ed7ad13e6, type: 3}

@@ -33,9 +33,9 @@ public class Beat : MonoBehaviour
 
     List<Instrument> instruments;
 
-    Instrument hoverInst;
+    // Instrument hoverInst;
 
-    Instrument prevInst;
+    // Instrument prevInst;
 
     void Start()
     {
@@ -44,30 +44,30 @@ public class Beat : MonoBehaviour
         enabledViews = new Dictionary<int, GameObject>();
     }
 
-    void OnMouseOver()
-    {
-        float y;
-        hoverInst = BeatManager.i.GetInstrument(Camera.main.ScreenToWorldPoint(Input.mousePosition).y, out y);
-        if (hoverInst != prevInst && prevInst != null)
-        {
-            prevInst.Hover(false, _beatNum);
-        }
+    // void OnMouseOver()
+    // {
+    //     float y;
+    //     hoverInst = BeatManager.i.GetInstrument(Camera.main.ScreenToWorldPoint(Input.mousePosition).y, out y);
+    //     if (hoverInst != prevInst && prevInst != null)
+    //     {
+    //         prevInst.Hover(false, _beatNum);
+    //     }
 
-        if (hoverInst != null)
-        {
-            hoverInst.Hover(true, _beatNum);
-        }
+    //     if (hoverInst != null)
+    //     {
+    //         hoverInst.Hover(true, _beatNum);
+    //     }
 
-        prevInst = hoverInst;
-    }
+    //     prevInst = hoverInst;
+    // }
 
-    void OnMouseExit()
-    {
-        if (prevInst != null)
-        {
-            prevInst.Hover(false, _beatNum);
-        }
-    }
+    // void OnMouseExit()
+    // {
+    //     if (prevInst != null)
+    //     {
+    //         prevInst.Hover(false, _beatNum);
+    //     }
+    // }
 
     public void ToggleInstrument(Instrument newInstrument, float viewY)
     {
@@ -109,23 +109,30 @@ public class Beat : MonoBehaviour
         }
     }
 
-    uint _b;
-
     void MetronomeHit()
     {
         Color newColor = hitColor;
         switch(_type)
         {
             case BeatManager.BeatType.DownBeat:
-                _b = (!BeatManager.i.isMetronomeMuted) ? AkSoundEngine.PostEvent("DownBeat", this.gameObject) : uint.MinValue;
+                if (!BeatManager.i.isMetronomeMuted) 
+                {
+                    BeatManager.i.DownBeat.Play();
+                }
                 break;
             case BeatManager.BeatType.NormalBeat:
-                _b = (!BeatManager.i.isMetronomeMuted) ? AkSoundEngine.PostEvent("Beat", this.gameObject) : uint.MinValue;
+                if (!BeatManager.i.isMetronomeMuted) 
+                {
+                    BeatManager.i.NormalBeat.Play();
+                }
                 newColor *= .5f;
                 newColor.a = 1f;
                 break;
             case BeatManager.BeatType.UpBeat:
-                _b = (!BeatManager.i.isMetronomeMuted) ? AkSoundEngine.PostEvent("UpBeat", this.gameObject) : uint.MinValue;
+                if (!BeatManager.i.isMetronomeMuted) 
+                {
+                    BeatManager.i.UpBeat.Play();
+                }
                 newColor *= .25f;
                 newColor.a = 1f;
                 break;

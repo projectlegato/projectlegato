@@ -43,6 +43,12 @@ public class BeatManager : MonoBehaviour
 
     public bool paused;
 
+    public AudioSource DownBeat;
+
+    public AudioSource NormalBeat;
+
+    public AudioSource UpBeat;
+
     void Start()
     {
         paused = false;
@@ -115,7 +121,6 @@ public class BeatManager : MonoBehaviour
         if(currIndex == 0) resets();            
         beatObjects[currIndex].GetComponent<Beat>().PlayBeat();
         beatObjects[decrIndex(currIndex)].GetComponent<SpriteRenderer>().color = Color.white;
-        AkSoundEngine.RenderAudio();
         currIndex = incrIndex(currIndex);
     }
 

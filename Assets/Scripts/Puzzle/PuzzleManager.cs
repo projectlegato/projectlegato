@@ -15,8 +15,6 @@ public class PuzzleManager : MonoBehaviour
 
     public GameObject rowPrefab;
 
-    bool startDone = false;
-
     void Start()
     {
         if (i == null)
@@ -38,7 +36,6 @@ public class PuzzleManager : MonoBehaviour
             newRow.GetComponent<PuzzleRow>().SetValues(GetValsForRow(i));
             rows.Add(newRow.GetComponent<PuzzleRow>());
         }
-        startDone = true;
     }
 
 

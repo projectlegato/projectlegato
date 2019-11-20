@@ -8,12 +8,12 @@ public class BeatManager : MonoBehaviour
     // singleton pattern
     public static BeatManager i;
 
-    public enum BeatType 
+    public enum BeatType
     {
         NormalBeat,
         DownBeat,
         UpBeat
-    };
+    }
 
     public int bpm;
 
@@ -38,8 +38,8 @@ public class BeatManager : MonoBehaviour
 
     public ResetCallback resets;
 
-    public void SubToResetEvent(ResetCallback r){ resets += r; }
-    public void UnsubFromResetEvent(ResetCallback r){ resets -= r; }
+    public void SubToResetEvent(ResetCallback r) { resets += r; }
+    public void UnsubFromResetEvent(ResetCallback r) { resets -= r; }
 
     public bool paused;
 
@@ -61,7 +61,7 @@ public class BeatManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        resets = () => {};
+        resets = () => { };
 
         beatObjects = new GameObject[beats.Count];
 
@@ -71,33 +71,34 @@ public class BeatManager : MonoBehaviour
             newBeat.GetComponent<Beat>().SetType(beats[i]);
             newBeat.GetComponent<Beat>().SetBeatNum(i);
             newBeat.transform.parent = this.transform;
-            if (subDiv) 
+            if (subDiv)
             {
                 var newScale = newBeat.transform.localScale;
                 newScale.x *= 0.5f;
                 newBeat.transform.localScale = newScale;
             }
             beatObjects[i] = newBeat;
-            mult += subDiv ? 2.5f: 5f;
-            if (i == beats.Count - 6) 
+            mult += subDiv ? 2.5f : 5f;
+            if (i == beats.Count - 6)
             {
                 var bounds = newBeat.GetComponent<BoxCollider2D>().bounds;
                 GameObject.FindObjectOfType<CameraController>().rightBound = bounds.center.x + bounds.extents.x + .2f;
-            } else if (i == beats.Count - 1)
+            }
+            else if (i == beats.Count - 1)
             {
                 var bounds = newBeat.GetComponent<BoxCollider2D>().bounds;
                 // GameObject.FindObjectOfType<CharController>().endLocation.x = bounds.center.x + bounds.extents.x;
             }
         }
 
-        InvokeRepeating("PlayOnBeat", 0f, 60f/bpm);
+        InvokeRepeating("PlayOnBeat", 0f, 60f / bpm);
     }
 
     void Update()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.GetRayIntersection(ray,Mathf.Infinity);
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
 
         if (hit.collider == null) return;
 
@@ -118,7 +119,7 @@ public class BeatManager : MonoBehaviour
     }
     void PlayOnBeat()
     {
-        if(currIndex == 0) resets();            
+        if (currIndex == 0) resets();
         beatObjects[currIndex].GetComponent<Beat>().PlayBeat();
         beatObjects[decrIndex(currIndex)].GetComponent<SpriteRenderer>().color = Color.white;
         currIndex = incrIndex(currIndex);
@@ -130,12 +131,12 @@ public class BeatManager : MonoBehaviour
         {
             var col = i.GetComponent<BoxCollider2D>();
             float _y = col.bounds.center.y;
-            if ((y >= _y - col.bounds.extents.y) 
-               && (y <= _y + col.bounds.extents.y))
-               {
-                   locY = col.bounds.center.y;
-                   return i.GetComponent<Instrument>();
-               }
+            if ((y >= _y - col.bounds.extents.y) &&
+                (y <= _y + col.bounds.extents.y))
+            {
+                locY = col.bounds.center.y;
+                return i.GetComponent<Instrument>();
+            }
         }
         locY = float.NaN;
         return null;
@@ -151,16 +152,16 @@ public class BeatManager : MonoBehaviour
         return (currIndex + beatObjects.Length - 1) % beatObjects.Length;
     }
 
-
     public void PauseToggle()
     {
-        if(paused)
+        if (paused)
         {
             print("unpaus");
             // InvokeRepeating("PlayOnBeat", 0f, 60f/bpm);
             Time.timeScale = 1f;
             paused = false;
-        } else
+        }
+        else
         {
             print("paus");
             // CancelInvoke();

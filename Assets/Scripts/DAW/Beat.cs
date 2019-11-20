@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Beat : MonoBehaviour 
+public class Beat : MonoBehaviour
 {
     public Color hitColor;
     BeatManager.BeatType _type;
     public BeatManager.BeatType GetBeatType() { return _type; }
-    public void SetType(BeatManager.BeatType t) 
-    {  
+    public void SetType(BeatManager.BeatType t)
+    {
         _type = t;
         Color c = hitColor;
         if (t == BeatManager.BeatType.NormalBeat) c *= .5f;
@@ -33,10 +33,6 @@ public class Beat : MonoBehaviour
 
     List<Instrument> instruments;
 
-    // Instrument hoverInst;
-
-    // Instrument prevInst;
-
     void Start()
     {
         sr = this.GetComponent<SpriteRenderer>();
@@ -44,42 +40,18 @@ public class Beat : MonoBehaviour
         enabledViews = new Dictionary<int, GameObject>();
     }
 
-    // void OnMouseOver()
-    // {
-    //     float y;
-    //     hoverInst = BeatManager.i.GetInstrument(Camera.main.ScreenToWorldPoint(Input.mousePosition).y, out y);
-    //     if (hoverInst != prevInst && prevInst != null)
-    //     {
-    //         prevInst.Hover(false, _beatNum);
-    //     }
-
-    //     if (hoverInst != null)
-    //     {
-    //         hoverInst.Hover(true, _beatNum);
-    //     }
-
-    //     prevInst = hoverInst;
-    // }
-
-    // void OnMouseExit()
-    // {
-    //     if (prevInst != null)
-    //     {
-    //         prevInst.Hover(false, _beatNum);
-    //     }
-    // }
-
     public void ToggleInstrument(Instrument newInstrument, float viewY)
     {
         int i = instruments.FindIndex(x => x.GetRow() == newInstrument.GetRow());
 
-        if ( i != -1 ) 
+        if (i != -1)
         {
             Destroy(enabledViews[instruments[i].GetRow()]);
             enabledViews.Remove(instruments[i].GetRow());
             instruments[i].OnUnSet(_beatNum);
             instruments.RemoveAt(i);
-        } else 
+        }
+        else
         {
             instruments.Add(newInstrument);
             newInstrument.OnSet(_beatNum);
@@ -90,7 +62,8 @@ public class Beat : MonoBehaviour
                 var newScale = newView.transform.localScale;
                 newScale.x *= 0.5f;
                 newView.transform.localScale = newScale;
-            } else 
+            }
+            else
             {
                 var newScale = newView.transform.localScale;
                 newScale.y *= 2f;
@@ -112,27 +85,18 @@ public class Beat : MonoBehaviour
     void MetronomeHit()
     {
         Color newColor = hitColor;
-        switch(_type)
+        switch (_type)
         {
             case BeatManager.BeatType.DownBeat:
-                if (!BeatManager.i.isMetronomeMuted) 
-                {
-                    BeatManager.i.DownBeat.Play();
-                }
+                if (!BeatManager.i.isMetronomeMuted) BeatManager.i.DownBeat.Play();
                 break;
             case BeatManager.BeatType.NormalBeat:
-                if (!BeatManager.i.isMetronomeMuted) 
-                {
-                    BeatManager.i.NormalBeat.Play();
-                }
+                if (!BeatManager.i.isMetronomeMuted) BeatManager.i.NormalBeat.Play();
                 newColor *= .5f;
                 newColor.a = 1f;
                 break;
             case BeatManager.BeatType.UpBeat:
-                if (!BeatManager.i.isMetronomeMuted) 
-                {
-                    BeatManager.i.UpBeat.Play();
-                }
+                if (!BeatManager.i.isMetronomeMuted) BeatManager.i.UpBeat.Play();
                 newColor *= .25f;
                 newColor.a = 1f;
                 break;

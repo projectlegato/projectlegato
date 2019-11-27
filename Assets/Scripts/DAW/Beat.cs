@@ -85,18 +85,19 @@ public class Beat : MonoBehaviour
     void MetronomeHit()
     {
         Color newColor = hitColor;
+        bool play = !(BeatManager.i.isGameMuted || BeatManager.i.isMetronomeMuted);
         switch (_type)
         {
             case BeatManager.BeatType.DownBeat:
-                if (!BeatManager.i.isMetronomeMuted) BeatManager.i.DownBeat.Play();
+                if (play) BeatManager.i.DownBeat.Play();
                 break;
             case BeatManager.BeatType.NormalBeat:
-                if (!BeatManager.i.isMetronomeMuted) BeatManager.i.NormalBeat.Play();
+                if (play) BeatManager.i.NormalBeat.Play();
                 newColor *= .5f;
                 newColor.a = 1f;
                 break;
             case BeatManager.BeatType.UpBeat:
-                if (!BeatManager.i.isMetronomeMuted) BeatManager.i.UpBeat.Play();
+                if (play) BeatManager.i.UpBeat.Play();
                 newColor *= .25f;
                 newColor.a = 1f;
                 break;

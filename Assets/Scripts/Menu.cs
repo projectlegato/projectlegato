@@ -25,4 +25,10 @@ public class Menu : MonoBehaviour
         mainMenu.SetActive(true);
         levelSelect.SetActive(false);
     }
+
+    [ContextMenu("Clear User Saves")]
+    public void ClearSaves()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }

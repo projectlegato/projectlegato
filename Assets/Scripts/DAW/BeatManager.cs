@@ -32,7 +32,17 @@ public class BeatManager : MonoBehaviour
     int currIndex = 0;
 
     public bool isMetronomeMuted;
-    public void ToggleMute() { isMetronomeMuted = !isMetronomeMuted; }
+    public void ToggleMute()
+    {
+        i.isMetronomeMuted = !i.isMetronomeMuted;
+    }
+
+    public bool isGameMuted;
+
+    public void ToggleGameMute()
+    {
+        i.isGameMuted = !i.isGameMuted;
+    }
 
     public delegate void ResetCallback();
 

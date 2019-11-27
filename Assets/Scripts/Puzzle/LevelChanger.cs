@@ -3,13 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class LevelChanger : MonoBehaviour
 {
-    public void NextLevel(string nextLevelName)
+    public void NextLevel()
     {
-        SceneManager.LoadScene(nextLevelName);
+        var winner = GameObject.FindObjectOfType<WinHandler>();
+        SceneManager.LoadScene($"Level {winner.levelNum + 1}");
     }
 
-    public void PrevLevel(string prevLevelName)
+    public void PrevLevel()
     {
-        SceneManager.LoadScene(prevLevelName);
+        var winner = GameObject.FindObjectOfType<WinHandler>();
+        SceneManager.LoadScene($"Level {winner.levelNum - 1}");
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }

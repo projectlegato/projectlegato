@@ -96,6 +96,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 0
   display: {fileID: 5474503413502119645}
+  square: {fileID: 3588549992799147524}
+  goodColor: {r: 0.3112715, g: 0.2509804, b: 0.5764706, a: 1}
+  badColor: {r: 1, g: 0, b: 0.24696922, a: 1}
 --- !u!1 &4617704809109179482
 GameObject:
   m_ObjectHideFlags: 0

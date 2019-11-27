@@ -46,35 +46,35 @@ public class PuzzleManager : MonoBehaviour
         {
             if (c > 0)
             {
-                rows[r-1].squares[c-1].value -= corners;
+                rows[r - 1].squares[c - 1].value -= corners;
             }
-            rows[r-1].squares[c].value -= edges;
-            if (c < rows[r-1].squares.Count - 1)
+            rows[r - 1].squares[c].value -= edges;
+            if (c < rows[r - 1].squares.Count - 1)
             {
-                rows[r-1].squares[c+1].value -= corners;
+                rows[r - 1].squares[c + 1].value -= corners;
             }
         }
         if (c > 0)
         {
-            rows[r].squares[c-1].value -= edges;
+            rows[r].squares[c - 1].value -= edges;
         }
         rows[r].squares[c].value -= center;
-        
+
         if (c < rows[r].squares.Count - 1)
         {
-            rows[r].squares[c+1].value -= edges;
+            rows[r].squares[c + 1].value -= edges;
         }
 
         if (r < rows.Count - 1)
         {
             if (c > 0)
             {
-                rows[r+1].squares[c-1].value -= corners;
+                rows[r + 1].squares[c - 1].value -= corners;
             }
-            rows[r+1].squares[c].value -= edges;
-            if (c < rows[r+1].squares.Count - 1)
+            rows[r + 1].squares[c].value -= edges;
+            if (c < rows[r + 1].squares.Count - 1)
             {
-                rows[r+1].squares[c+1].value -= corners;
+                rows[r + 1].squares[c + 1].value -= corners;
             }
         }
         if (IsComplete())
@@ -93,10 +93,12 @@ public class PuzzleManager : MonoBehaviour
         if (row == 0)
         {
             return gridValues.rowZeroValues;
-        } else if (row == 1)
+        }
+        else if (row == 1)
         {
             return gridValues.rowOneValues;
-        } else if (row == 2)
+        }
+        else if (row == 2)
         {
             return gridValues.rowTwoValues;
         }

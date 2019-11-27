@@ -11,14 +11,7 @@ public class LevelButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.GetInt("level", 1) < lvl)
-        {
-            GetComponent<Button>().interactable = false;
-        }
-        else
-        {
-            GetComponent<Button>().interactable = true;
-        }
+        GetComponent<Button>().interactable = PlayerPrefs.GetInt("level", 1) >= lvl;
         text.text = $"{lvl}";
     }
 

@@ -29,7 +29,7 @@ public class Instrument : MonoBehaviour
 
     public void MakeSound(int beatNum)
     {
-        sound.Play();
+        if (!BeatManager.i.isGameMuted) sound.Play();
         GetComponent<SpriteRenderer>().sprite = play;
         StartCoroutine(ChangeAfterBeat(idle, (float)BeatManager.i.bpm));
     }

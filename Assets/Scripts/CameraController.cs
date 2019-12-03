@@ -2,12 +2,16 @@
 
 public class CameraController : MonoBehaviour
 {
-    
+
     public float speed;
 
     public float rightBound;
 
     public float leftBound;
+
+    bool rightButton = false;
+
+    bool leftButton = false;
 
     void Start()
     {
@@ -17,8 +21,14 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow)) moveRight();
-        else if (Input.GetKey(KeyCode.LeftArrow)) moveLeft();
+        if (Input.GetKey(KeyCode.RightArrow) || rightButton)
+        {
+            moveRight();
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow) || leftButton)
+        {
+            moveLeft();
+        }
 
         if (this.transform.position.x > rightBound)
         {
@@ -46,4 +56,10 @@ public class CameraController : MonoBehaviour
             this.transform.position += speed * Vector3.left;
         }
     }
+
+    public void PressRight() { rightButton = true; }
+    public void ReleaseRight() { rightButton = false; }
+
+    public void PressLeft() { leftButton = true; }
+    public void ReleaseLeft() { leftButton = false; }
 }

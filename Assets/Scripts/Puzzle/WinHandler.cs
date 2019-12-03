@@ -12,11 +12,23 @@ public class WinHandler : MonoBehaviour
     public int levelNum;
 
     public Color target;
+
+    public bool isLast = false;
+
+    bool done = false;
     void Start()
     {
+        done = false;
         string lvlName = SceneManager.GetActiveScene().name;
-        nextLevelButton.gameObject.SetActive(false);
         levelNum = Int32.Parse(lvlName.Substring(lvlName.IndexOf(" ") + 1));
+        if (!isLast && PlayerPrefs.GetInt("level", 1) <= levelNum)
+        {
+            nextLevelButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            nextLevelButton.gameObject.SetActive(true);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -31,6 +43,7 @@ public class WinHandler : MonoBehaviour
     public void EnableNext()
     {
         // print("win!");
+        if (done) return;
         PlayerPrefs.SetInt("level", levelNum + 1);
         // print($"set in playerprefs {PlayerPrefs.GetInt("level")}");
         youWin.Play();
@@ -42,7 +55,7 @@ public class WinHandler : MonoBehaviour
         Vector3 targetScale = Vector3.one * 2f;
         Vector3 startScale = nextLevelButton.transform.localScale;
         float t = 0f;
-        float duration = .3f;
+        float duration = .2f;
 
         nextLevelButton.gameObject.SetActive(true);
         Color orig = nextLevelButton.GetComponent<Image>().color;
@@ -63,6 +76,7 @@ public class WinHandler : MonoBehaviour
             yield return null;
         }
         nextLevelButton.GetComponent<Image>().color = orig;
+        done = true;
         yield break;
     }
 }

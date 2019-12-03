@@ -19,4 +19,10 @@ public class LevelButton : MonoBehaviour
     {
         SceneManager.LoadScene($"Level {lvl}");
     }
+
+    public void Refresh()
+    {
+        GetComponent<Button>().interactable = PlayerPrefs.GetInt("level", 1) >= lvl;
+        text.text = $"{lvl}";
+    }
 }

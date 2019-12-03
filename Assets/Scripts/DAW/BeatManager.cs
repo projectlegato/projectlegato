@@ -70,6 +70,7 @@ public class BeatManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        // Application.targetFrameRate = 20;
 
         resets = () => { };
 

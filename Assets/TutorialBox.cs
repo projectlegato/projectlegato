@@ -13,7 +13,7 @@ public class TutorialBox : MonoBehaviour
         // {
         //     gameSprites.AddRange(row.GetComponentsInChildren<SpriteRenderer>());
         // }
-        print($"grid length {gameSprites.Count}");
+        // print($"grid length {gameSprites.Count}");
         foreach (var s in gameSprites) s.enabled = false;
         PuzzleManager.i.gameObject.SetActive(false);
     }

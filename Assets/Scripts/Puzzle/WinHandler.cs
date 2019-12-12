@@ -59,7 +59,7 @@ public class WinHandler : MonoBehaviour
 
         nextLevelButton.gameObject.SetActive(true);
         Color orig = nextLevelButton.GetComponent<Image>().color;
-        print($"target color {target}");
+        // print($"target color {target}");
         nextLevelButton.GetComponent<Image>().color = target;
         while (t < duration)
         {

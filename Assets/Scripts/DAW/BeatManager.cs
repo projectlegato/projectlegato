@@ -167,14 +167,14 @@ public class BeatManager : MonoBehaviour
     {
         if (paused)
         {
-            print("unpaus");
+            // print("unpaus");
             // InvokeRepeating("PlayOnBeat", 0f, 60f/bpm);
             Time.timeScale = 1f;
             paused = false;
         }
         else
         {
-            print("paus");
+            // print("paus");
             // CancelInvoke();
             Time.timeScale = 0.0000001f;
             paused = true;

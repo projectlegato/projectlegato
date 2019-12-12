@@ -13,6 +13,7 @@ public class LevelButton : MonoBehaviour
     {
         GetComponent<Button>().interactable = PlayerPrefs.GetInt("level", 1) >= lvl;
         text.text = $"{lvl}";
+        // print($"level is {lvl}");
     }
 
     public void LoadLevel()

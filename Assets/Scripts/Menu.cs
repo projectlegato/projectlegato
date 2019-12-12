@@ -14,7 +14,9 @@ public class Menu : MonoBehaviour
 
     private void Start()
     {
-        Application.targetFrameRate = 15;
+        // print("main menu is null? " + (mainMenu == null));
+        // print("levelselect is null? " + (levelSelect == null));
+        // print("clearsave is null? " + (clearSaveConfirmation == null));
         mainMenu.SetActive(true);
         levelSelect.SetActive(false);
         clearSaveConfirmation.SetActive(false);
